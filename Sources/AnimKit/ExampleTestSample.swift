@@ -34,12 +34,12 @@ public struct ExampleTestSample: View {
                                     content()
                                 }
                             }
-                            .navigationDestination(isPresented: $nextPage) {
-                                screen
-                            }
                         }
                     }
                 }
+            }
+            .navigationDestination(isPresented: $nextPage) {
+                screen
             }
             .padding(.horizontal)
             .navigationTitle("Animkit Example")
