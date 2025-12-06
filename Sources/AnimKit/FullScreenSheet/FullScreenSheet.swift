@@ -1,10 +1,12 @@
 import SwiftUI
 
 @available(iOS 18, *)
-struct FullScreenSheet: View {
+public struct FullScreenSheet: View {
     @State private var isPresented: Bool = false
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         Button("Start") {
             isPresented = true
         }

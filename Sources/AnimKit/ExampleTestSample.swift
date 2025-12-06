@@ -4,6 +4,9 @@ public struct ExampleTestSample: View {
     @State private var isPresented: Bool = false
     @State private var nextPage: Bool = false
     @State private var screen: AnyView? = nil
+    
+    public init() {}
+    
     public var body: some View {
         NavigationStack {
             ScrollView {
