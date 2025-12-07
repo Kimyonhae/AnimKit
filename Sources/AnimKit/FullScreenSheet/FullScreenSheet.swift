@@ -20,7 +20,7 @@ public struct FullScreenSheet: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                 }
-            }.frame(width: .infinity, height: .infinity)
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
         } background: {
             RoundedRectangle(cornerRadius: 20)
                 .fill(.green)
