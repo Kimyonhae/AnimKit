@@ -111,6 +111,22 @@ extension ExampleTestSample{
                     }
                 }()
             ),
+            Card(
+                title: "Sticky Header",
+                description: """
+                    StickyList(
+                        headerContent: { safeAreaTop in
+                            Header(safeAreaTop)
+                    },  content: {
+                        EmptyView()
+                    }, minHeight: 250)
+                """,
+                screen: {
+                    AnyView(
+                        StickyHeaderTestSample()
+                    )
+                }(),
+            ),
         ]
     }
 }
