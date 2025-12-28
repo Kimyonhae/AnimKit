@@ -127,6 +127,65 @@ extension ExampleTestSample{
                     )
                 }(),
             ),
+            Card(
+                title: "Animated Scale Menu",
+                description: """
+                    VStack {
+                        
+                    }
+                    .navigationTitle("AnimatedScaleMenuTest")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                    .overlay {
+                        ZStack(alignment: .bottomTrailing) {
+                            Rectangle()
+                                .fill(.primary.opacity(isPresented ? 0.1 : 0))
+                                .allowsTightening(isPresented)
+                                .onTapGesture {
+                                    isPresented = false
+                                }
+                                .animation(.snappy(duration: 0.3, extraBounce: 0.3), value: isPresented)
+                                .ignoresSafeArea()
+                            
+                            AnimatedScaleMenu(
+                                isPresented: $isPresented,
+                                actions: {
+                                    VStack(spacing: 4) {
+                                        sublineText("검색", icon: "magnifyingglass.circle")
+                                        sublineText("분류", icon: "divide.circle")
+                                        
+                                        HStack(spacing: 0) {
+                                            circleIcon(icon: "pencil.tip.crop.circle")
+                                            Spacer()
+                                            circleIcon(icon: "square.and.pencil.circle")
+                                            Spacer()
+                                            circleIcon(icon: "trash.circle")
+                                            Spacer()
+                                            circleIcon(icon: "folder.circle")
+                                        }
+                                    }
+                                    .frame(width: 250)
+                                },background: {
+                                    ZStack {
+                                        Capsule()
+                                            .fill(.background)
+                                        Capsule().fill(.ultraThinMaterial)
+                                    }
+                                    .shadow(color: .gray.opacity(0.5) ,radius: 1)
+                                }
+                            )
+                            .padding(.trailing)
+                            .padding(.bottom)
+                        }
+                    }
+                    .background(Color.secondary.opacity(0.1))
+                """,
+                screen: {
+                    AnyView(
+                        AnimatedScaleMenuTestSample()
+                    )
+                }(),
+            ),
         ]
     }
 }
